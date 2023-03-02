@@ -1,11 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 
-const FirstApp = () => {
+const FirstApp = ({ value }) => {
+	const [counter, setCounter] = useState(0);
+	const handleAdd = () => {
+		setCounter(counter + 1);
+	};
+	const handleSubstract = () => {
+		setCounter(counter - 1);
+	};
+	const handleReset = () => {
+		setCounter(0);
+	};
+
 	return (
-		<div>
-			<h1> title </h1>
-			<span>10</span>
-		</div>
+		<>
+			<h1> Counter </h1>
+			<span className=""> {counter} </span>
+			<hr />
+			<button onClick={() => handleAdd()}> +1 </button>
+			<button onClick={() => handleSubstract()}> -1 </button>
+			<button onClick={() => handleReset()}> 0 </button>
+		</>
 	);
 };
 
