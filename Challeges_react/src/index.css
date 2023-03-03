@@ -29,6 +29,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: #747bff;
 }
 
 h1 {
@@ -66,4 +67,18 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+.card-grid{
+
+  background-color: #ff0000;
+
+  padding: 30px;
+
+  border-radius: 20px;
+
+  margin: auto;
+
+
+
+
 }

@@ -1,37 +1,25 @@
 import React, { useState } from "react";
+import { AddCategory } from "./components/AddCategory";
+import { GifGrid } from "./components/GifGrid";
+
+const categories = ["empanada", "hamborguesa"];
 
 export const GitExpertApp = () => {
-	const [categories, setCategories] = useState([]);
+	const [categories, setCategories] = useState(["Animales"]);
 
-	const [category, setCategory] = useState("");
-
-	const onAddCategory = () => {
+	const onAddCategory = (category) => {
 		setCategories((list) => [...list, category]);
-
-		setCategory("");
-	};
-
-	const onSetCategory = (evt) => {
-		setCategory(evt.target.value);
 	};
 
 	return (
 		<>
 			<h1>GitExpert</h1>
 
-			<input
-				type="text"
-				value={category}
-				onChange={(event) => onSetCategory(event)}
-			/>
+			<AddCategory onAddCategory={onAddCategory} />
 
-			<button onClick={() => onAddCategory()}>Añadir</button>
-
-			<ol>
-				{categories.map((category, key) => {
-					return <li key={key}>{category}</li>;
-				})}
-			</ol>
+			{categories.map((category, key) => {
+				return <GifGrid category={category} key={key} />;
+			})}
 		</>
 	);
 };
